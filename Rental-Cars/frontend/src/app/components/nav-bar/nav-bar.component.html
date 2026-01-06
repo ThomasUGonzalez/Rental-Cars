@@ -1,0 +1,44 @@
+<mat-toolbar class="main-toolbar" [class.home-mode]="isHome">
+  <div class="toolbar-content container-fluid">
+    <span class="app-title" routerLink="/">{{ title }}</span>
+
+    <nav class="navbar navbar-expand-lg">
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+          <a class="nav-link" routerLink="/car" routerLinkActive="active">Inventario</a>
+        </div>
+      </div>
+    </nav>
+
+    <span class="spacer"></span>
+
+    <div>
+      <ng-container *ngIf="!(currentUser$ | async)">
+        <button mat-stroked-button color="accent" class="login-button" routerLink="/login">
+          <mat-icon>login</mat-icon>
+          Login
+        </button>
+      </ng-container>
+
+      <ng-container *ngIf="currentUser$ | async as user">
+        <button mat-button class="rentals-button" routerLink="/rentals" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: false }">
+          <mat-icon>list_alt</mat-icon>
+          Mis Alquileres
+        </button>
+        <span class="welcome-message">
+          Hola, {{ user.name }} ({{ user.role }})
+        </span>
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Menú de usuario">
+          <mat-icon>account_circle</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="logout()">
+            <mat-icon>logout</mat-icon>
+            <span>Cerrar Sesión</span>
+          </button>
+        </mat-menu>
+      </ng-container>
+    </div>
+  </div>
+</mat-toolbar>

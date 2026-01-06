@@ -1,0 +1,30 @@
+<div class="modal fade" [id]="id" tabindex="-1" [attr.aria-labelledby]="id + 'Label'" aria-hidden="true"
+     [class.show]="isOpen" [style.display]="isOpen ? 'block' : 'none'">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" [id]="id + 'Label'">{{ title }}</h1>
+        <button type="button" class="btn-close" (click)="closeModal()" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body">
+        <p>{{ body }}</p>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="closeModal()">
+          {{ closeButtonText }}
+        </button>
+
+        <button type="button" class="btn" [ngClass]="confirmButtonClass" (click)="onConfirmClick()">
+          {{ confirmButtonText }}
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Backdrop handled inside component to avoid relying on Bootstrap JS -->
+<div class="modal-backdrop fade" [class.show]="isOpen" *ngIf="isOpen"></div>

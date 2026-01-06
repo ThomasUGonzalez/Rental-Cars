@@ -1,0 +1,51 @@
+
+.filter-card {
+  margin-bottom: 24px;
+  padding: 16px 24px;
+}
+.filter-form {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.filter-search {
+  flex: 1 1 300px;
+}
+
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.car-card {
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  position: relative;
+}
+.car-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.car-card.car-rented {
+  opacity: 0.7;
+}
+.car-card.car-rented img {
+  filter: grayscale(80%);
+}
+.rented-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 10;
+}
+.rented-badge mat-chip {
+  font-weight: 500 !important;
+}
+
+.car-card img[mat-card-image] {
+  height: 200px;
+  object-fit: cover;
+  background-color: #f5f5f5;
+}

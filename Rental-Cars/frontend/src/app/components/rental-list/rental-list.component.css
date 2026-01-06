@@ -1,0 +1,5 @@
+.rental-list-container { padding: 1rem; }
+.rentals-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; }
+.rental-card { padding: 0.5rem; }
+.spacer { flex: 1 1 auto; }
+.loading-shade { display:flex; align-items:center; gap:1rem; }

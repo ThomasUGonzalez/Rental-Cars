@@ -1,0 +1,129 @@
+
+/* Usa la misma tipografía global que Home e Inventario */
+:host {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.main-toolbar {
+  height: 64px;
+  padding: 0 24px;
+  background-color: #1f2a44;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.main-toolbar.home-mode {
+  background-color: #1f2a44;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.toolbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.app-title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  margin-right: 24px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.app-title:hover { opacity: 0.9; }
+
+.navbar-nav .nav-link {
+  color: #fff !important;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  margin: 0 6px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background-color 0.2s, color 0.2s;
+  font-family: inherit;
+}
+
+.navbar-nav .nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.navbar-nav .nav-link.active {
+  position: relative;
+  background-color: rgba(255,255,255,0.08);
+}
+.navbar-nav .nav-link.active::after {
+  content: '';
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 4px;
+  height: 3px;
+  border-radius: 2px;
+  background-color: #ffca28;
+}
+
+/* Botón Mis Alquileres */
+.rentals-button {
+  color: #fff !important;
+  font-weight: 400;
+  margin-right: 12px;
+  text-transform: none;
+  position: relative;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.25);
+  padding: 10px 16px 16px;
+  border-radius: 8px;
+  font-family: inherit;
+}
+.rentals-button mat-icon {
+  vertical-align: middle;
+  margin-right: 6px;
+  color: #fff;
+}
+.rentals-button:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+
+.rentals-button.active::after {
+  content: '';
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 2px;
+  height: 3px;
+  border-radius: 2px;
+  background-color: #ffca28;
+}
+
+.spacer { flex: 1 1 auto; }
+
+.welcome-message {
+  font-size: 0.9rem;
+  margin-right: 15px;
+  display: none;
+  color: white;
+}
+
+@media (min-width: 768px) {
+  .welcome-message {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+button[mat-icon-button] {
+  vertical-align: middle;
+  color: white;
+}
+
+.login-button {
+  --mdc-outlined-button-outline-color: rgba(255,255,255,0.6);
+  border-color: rgba(255,255,255,0.6) !important;
+  color: #fff !important;
+}
+.login-button:hover { border-color: #ffca28 !important; }

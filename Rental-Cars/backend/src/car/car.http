@@ -1,0 +1,44 @@
+### obtener todos los cars
+GET http://localhost:3000/api/cars
+
+### obtener un car
+GET http://localhost:3000/api/cars/4
+
+### crear un nuevo car
+POST http://localhost:3000/api/cars/new
+Content-Type: application/json
+
+{
+  "brand": "Toyota",
+  "model": "Corolla",
+  "year": 2022,
+  "color": "Blue",
+  "price": 450,
+  "imageUrl": "https://www.pngitem.com/pimgs/m/638-6380605_toyota-corolla-car-png-transparent-png.png"
+}
+
+### modificar un car (PUT - recurso completo e idempotente)
+PUT http://localhost:3000/api/cars/2
+Content-Type: application/json
+
+{
+  "id": 1,
+  "brand": "Toyota",
+  "model": "Corolla",
+  "year": 2022,
+  "color": "Blue",
+  "price": 100000,
+  "available": true
+}
+
+### modificar un car (PATCH - recurso parcial)
+PATCH http://localhost:3000/api/cars/patch/4
+Content-Type: application/json
+
+{
+  "price": 15000,
+  "available": false
+}
+
+### borrar un car
+DELETE http://localhost:3000/api/cars/delete/4

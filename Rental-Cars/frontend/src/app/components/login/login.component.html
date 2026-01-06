@@ -1,0 +1,64 @@
+<div class="login-container">
+  <div class="login-form-wrapper">
+    <h3 class="mb-4">Iniciar Sesión</h3>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
+      
+      <div class="mb-3">
+        <label for="loginFormEmail" class="form-label">Correo Electrónico</label>
+        <input
+          type="email"
+          class="form-control"
+          id="loginFormEmail"
+          placeholder="email@example.com"
+          formControlName="mail"
+          [class.is-invalid]="loginForm.get('mail')?.invalid && loginForm.get('mail')?.touched">
+        <div *ngIf="loginForm.get('mail')?.invalid && loginForm.get('mail')?.touched" class="invalid-feedback">
+          <span *ngIf="loginForm.get('mail')?.hasError('required')">El correo es requerido.</span>
+          <span *ngIf="loginForm.get('mail')?.hasError('email')">Debe ser un correo válido.</span>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="loginFormPassword" class="form-label">Contraseña</label>
+        <input
+          type="password"
+          class="form-control"
+          id="loginFormPassword"
+          placeholder="Contraseña"
+          formControlName="password"
+          [class.is-invalid]="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+        <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="invalid-feedback">
+          <span *ngIf="loginForm.get('password')?.hasError('required')">La contraseña es requerida.</span>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="dropdownCheck" formControlName="rememberMe">
+          <label class="form-check-label" for="dropdownCheck">
+            Recuérdame
+          </label>
+        </div>
+      </div>
+
+      <div *ngIf="errorMessage" class="alert alert-danger mt-3">
+        {{ errorMessage }}
+      </div>
+
+      <div *ngIf="loading" class="d-flex justify-content-center mt-3">
+        <mat-spinner diameter="30"></mat-spinner>
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100 mt-2" [disabled]="loading || loginForm.invalid">
+        {{ loading ? 'Ingresando...' : 'Iniciar Sesión' }}
+      </button>
+    </form>
+
+    <hr class="my-4">
+    <p class="text-center small">
+      ¿No tienes una cuenta? 
+      <a routerLink="/register">Regístrate aquí</a>
+    </p>
+  </div>
+</div>

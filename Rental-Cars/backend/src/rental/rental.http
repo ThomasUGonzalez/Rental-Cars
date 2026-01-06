@@ -1,0 +1,21 @@
+POST http://localhost:3000/api/rentals/new
+Content-Type: application/json
+
+{
+  "userId": "691c9ae4c7cc683db65ea4f1",
+  "carId": 1,
+  "startDate": "03/04/2026",
+  "endDate": "06/04/2026"
+}
+###
+GET http://localhost:3000/api/rentals
+###
+DELETE http://localhost:3000/api/rentals/7
+###
+PATCH http://localhost:3000/api/rentals/patch/1
+Content-Type: application/json
+
+{
+  "startDate": "05/04/2004",
+  "endDate": "10/04/2004"
+}

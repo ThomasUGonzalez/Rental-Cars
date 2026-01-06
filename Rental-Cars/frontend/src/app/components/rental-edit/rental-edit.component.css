@@ -1,0 +1,9 @@
+.rental-edit-container { padding: 1rem; max-width: 800px; margin: 0 auto; }
+.rental-edit-container mat-card { box-sizing: border-box; padding: 16px; }
+.rental-edit-container mat-card-title { display: block; margin-bottom: 8px; font-size: 1.25rem; }
+mat-form-field { display: block; width: 100%; margin-bottom: 1rem; }
+
+@media (max-width: 480px) {
+	.rental-edit-container { padding: 12px; }
+	.rental-edit-container mat-card { padding: 12px; }
+}
