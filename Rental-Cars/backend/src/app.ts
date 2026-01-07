@@ -16,8 +16,8 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 const corsOptions = {
-  origin: 'http://localhost:4200',
-  optionsSuccessStatus: 200 
+  origin: '*',
+  optionsSuccessStatus: 200
 };
 
 async function startServer() {
@@ -25,7 +25,7 @@ async function startServer() {
   await connectDB();
 
   // 2. USAR MIDDLEWARES (CORS debe ir antes de las rutas)
-  app.use(cors(corsOptions)); 
+  app.use(cors(corsOptions));
   app.use(httpLogger);
   app.use(express.json());
 
