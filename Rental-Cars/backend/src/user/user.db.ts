@@ -3,11 +3,12 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://root:example@localhost:27017/users?authSource=admin';
+const uri = process.env.MONGO_URL || process.env.MONGODB_URI || 'mongodb://root:example@localhost:27017/users?authSource=admin';
+await mongoose.connect(uri);
 
 export const connectDB = async () => {
   try {
-    await mongoose.connect(MONGODB_URI);
+    await mongoose.connect(uri);
     console.log('Conectado a MongoDB');
   } catch (err) {
     console.error('Error al conectar a MongoDB:', err);
