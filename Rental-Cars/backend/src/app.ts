@@ -19,7 +19,10 @@ const corsOptions = {
   origin: '*',
   optionsSuccessStatus: 200
 };
-
+console.log("--- DEBUGGING VARIABLES ---");
+console.log("MONGODB_URI:", process.env.MONGODB_URI);
+console.log("MONGO_URL:", process.env.MONGO_URL);
+console.log("-------------------------");
 async function startServer() {
   // 1. Conectar a MongoDB y esperar a que esté lista
   await connectDB();
